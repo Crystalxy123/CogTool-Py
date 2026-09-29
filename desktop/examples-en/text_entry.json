@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "text-entry",
+  "name": "Text Entry with Explicit Keystrokes",
+  "engine": "klm_baseline",
+  "parameters": {
+    "click_s": {
+      "value": 0.2,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    },
+    "key_s": {
+      "value": 0.2,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    },
+    "homing_s": {
+      "value": 0.4,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    }
+  },
+  "design": {
+    "id": "example-ui",
+    "name": "Example Interface",
+    "coordinate_unit": "px",
+    "frames": [
+      {
+        "id": "main",
+        "name": "Main Page",
+        "widgets": [
+          {
+            "id": "field",
+            "name": "query",
+            "label": "Query",
+            "kind": "textbox",
+            "x": 180,
+            "y": 100,
+            "width": 180,
+            "height": 40
+          }
+        ]
+      }
+    ],
+    "transitions": []
+  },
+  "tasks": [
+    {
+      "id": "text_entry",
+      "name": "Click the Text Field and Type hi",
+      "demonstration": {
+        "initial": {
+          "frame": "main",
+          "mouse": [
+            0,
+            0
+          ],
+          "mouse_hand": "right",
+          "hand": "mouse",
+          "focus": null
+        },
+        "steps": [
+          {
+            "op": "click",
+            "target": "field"
+          },
+          {
+            "op": "keys",
+            "keys": [
+              "h",
+              "i"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

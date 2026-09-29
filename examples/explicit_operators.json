@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "id": "explicit-operators",
+  "name": "显式操作边界示例",
+  "engine": "klm_baseline",
+  "parameters": {
+    "click_s": {
+      "value": 0.2,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    },
+    "key_s": {
+      "value": 0.2,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    },
+    "homing_s": {
+      "value": 0.4,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    }
+  },
+  "design": {
+    "id": "example-ui",
+    "name": "示意界面",
+    "coordinate_unit": "px",
+    "frames": [
+      {
+        "id": "main",
+        "name": "主页",
+        "widgets": [
+          {
+            "id": "button",
+            "name": "run",
+            "label": "运行",
+            "kind": "button",
+            "x": 180,
+            "y": 100,
+            "width": 80,
+            "height": 40
+          }
+        ]
+      }
+    ],
+    "transitions": []
+  },
+  "tasks": [
+    {
+      "id": "explicit_operators",
+      "name": "显式Think LookAt Home Point Wait",
+      "demonstration": {
+        "initial": {
+          "frame": "main",
+          "mouse": [
+            0,
+            0
+          ],
+          "mouse_hand": "right",
+          "hand": "mouse",
+          "focus": null
+        },
+        "steps": [
+          {
+            "op": "think",
+            "duration_s": 0.8
+          },
+          {
+            "op": "look_at",
+            "target": "button",
+            "duration_s": 0.3
+          },
+          {
+            "op": "home",
+            "device": "keyboard"
+          },
+          {
+            "op": "home",
+            "device": "mouse"
+          },
+          {
+            "op": "point",
+            "target": "button"
+          },
+          {
+            "op": "click",
+            "target": "button"
+          },
+          {
+            "op": "wait",
+            "duration_s": 0.25
+          }
+        ]
+      }
+    }
+  ]
+}

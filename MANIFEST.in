@@ -1,0 +1,26 @@
+include LICENSE NOTICE.md README.md CHANGELOG.md pyproject.toml requirements-dev.txt
+recursive-include LICENSES *.txt
+recursive-include cogtool_py *.py *.json
+include docs/QUICKSTART_zh.md docs/INSTALLATION.md docs/VALIDATION.md
+include docs/LIMITATIONS.md docs/SUPPORTED_FEATURES.md
+include docs/source_audit.md docs/model_semantics.md docs/parameter_migration_zh.md
+include docs/integrated_control_rules_zh.md docs/vision_mechanism_zh.md
+include docs/mechanism_evidence_zh.md docs/control_prefix_procedural_zh.md
+include docs/compatibility.md docs/visual_initialization_2014.md docs/motor_preparation_zh.md
+include examples/single_click.json examples/text_entry.json examples/two_page_wait.json examples/explicit_operators.json
+include examples/installed_api.py
+include examples/verify_installation.py
+prune tests
+prune scripts
+include tests/test_distribution_runtime.py
+include tests/test_distribution_benchmark.py
+prune reports
+prune reference
+prune documentation
+prune code
+prune cogtool
+prune validation
+prune dist
+prune build
+prune .venv
+global-exclude __pycache__ *.py[cod] .DS_Store

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "two-page-wait",
+  "name": "Page Navigation and System Response",
+  "engine": "klm_baseline",
+  "parameters": {
+    "click_s": {
+      "value": 0.2,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    },
+    "key_s": {
+      "value": 0.2,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    },
+    "homing_s": {
+      "value": 0.4,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    }
+  },
+  "design": {
+    "id": "example-ui",
+    "name": "Example Interface",
+    "coordinate_unit": "px",
+    "frames": [
+      {
+        "id": "main",
+        "name": "Main Page",
+        "widgets": [
+          {
+            "id": "button",
+            "name": "run",
+            "label": "Run",
+            "kind": "button",
+            "x": 180,
+            "y": 100,
+            "width": 80,
+            "height": 40
+          }
+        ]
+      },
+      {
+        "id": "result",
+        "name": "Results Page",
+        "widgets": [
+          {
+            "id": "finish",
+            "name": "finish",
+            "label": "Finish",
+            "kind": "button",
+            "x": 350,
+            "y": 200,
+            "width": 100,
+            "height": 40
+          }
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "load-result",
+        "from_frame": "main",
+        "target": "button",
+        "to_frame": "result",
+        "delay_s": 0.75
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "id": "two_page_wait",
+      "name": "Load Results and Finish",
+      "demonstration": {
+        "initial": {
+          "frame": "main",
+          "mouse": [
+            0,
+            0
+          ],
+          "mouse_hand": "right",
+          "hand": "mouse",
+          "focus": null
+        },
+        "steps": [
+          {
+            "op": "click",
+            "target": "button",
+            "transition": "load-result"
+          },
+          {
+            "op": "click",
+            "target": "finish"
+          }
+        ]
+      }
+    }
+  ]
+}

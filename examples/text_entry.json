@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "text-entry",
+  "name": "输入明确物理按键",
+  "engine": "klm_baseline",
+  "parameters": {
+    "click_s": {
+      "value": 0.2,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    },
+    "key_s": {
+      "value": 0.2,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    },
+    "homing_s": {
+      "value": 0.4,
+      "unit": "s",
+      "source": "Example modeling assumption for software verification only; not a CogTool default or human-study estimate"
+    }
+  },
+  "design": {
+    "id": "example-ui",
+    "name": "示意界面",
+    "coordinate_unit": "px",
+    "frames": [
+      {
+        "id": "main",
+        "name": "主页",
+        "widgets": [
+          {
+            "id": "field",
+            "name": "query",
+            "label": "查询",
+            "kind": "textbox",
+            "x": 180,
+            "y": 100,
+            "width": 180,
+            "height": 40
+          }
+        ]
+      }
+    ],
+    "transitions": []
+  },
+  "tasks": [
+    {
+      "id": "text_entry",
+      "name": "点击输入框并键入hi",
+      "demonstration": {
+        "initial": {
+          "frame": "main",
+          "mouse": [
+            0,
+            0
+          ],
+          "mouse_hand": "right",
+          "hand": "mouse",
+          "focus": null
+        },
+        "steps": [
+          {
+            "op": "click",
+            "target": "field"
+          },
+          {
+            "op": "keys",
+            "keys": [
+              "h",
+              "i"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

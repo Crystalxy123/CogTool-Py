@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools==80.9.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cogtool-py"
+version = "0.2.1rc1"
+description = "Offline research software with a serial baseline and bounded CogTool 2014 mechanisms"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+readme = "README.md"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest==8.4.2"]
+
+[project.scripts]
+cogtool-py = "cogtool_py.cli:main"
+
+[tool.setuptools]
+packages = ["cogtool_py", "cogtool_py.resources"]
+license-files = ["LICENSE", "NOTICE.md", "LICENSES/*.txt"]
+
+[tool.setuptools.package-data]
+cogtool_py = ["resources/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+  "independent: hand-calculated formula and logic evidence",
+  "integration: Python-only integration and regression evidence",
+  "differential: requires real original CogTool evidence; absence is a skip",
+]
